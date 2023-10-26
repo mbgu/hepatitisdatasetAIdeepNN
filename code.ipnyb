@@ -1,0 +1,36 @@
+from google.colab import drive
+drive.mount('/content/drive')
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings("ignore")
+from sklearn.model_selection import KFold, cross_val_score, GridSearchCV, StratifiedKFold
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC, SVC
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, log_loss
+from sklearn.metrics import auc, roc_curve, roc_auc_score, precision_recall_curve
+from sklearn.metrics import fbeta_score, cohen_kappa_score
+from sklearn.neural_network import MLPClassifier
+
+SEED = 42
+
+df = pd.read_csv('/content/drive/hcvr.csv')
+df.head()
+
+# to visualise pair plot
+sns.pairplot(df, hue='Baselinehistologicalstaging', plot_kws=dict(alpha=.3, edgecolor='none'), height=2, aspect=1.1)
+
+X, y = df.drop('Baselinehistologicalstaging', axis=1), df['Baselinehistologicalstaging']
+print(X.shape, y.shape)
+
+
