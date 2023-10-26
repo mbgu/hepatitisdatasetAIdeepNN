@@ -5,3 +5,7 @@ file type .csv
 file uploaded from
 
 https://github.com/mbgu/hepatitisdatasetAIdeepNN/blob/main/hcvrustuyazisiz.csv
+
+##dataset explanation 
+
+A binary classification problem. (output 0 for "no cirrhosis" or 1 for "cirrhosis").
